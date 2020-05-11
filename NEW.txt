@@ -1,0 +1,92 @@
+v 2.1
+  - Minor edits for style
+v 2.2
+  - Fixed field to fileId in Paper class
+  - minor edits
+v 3.1
+  - Most of the comments removed on v3 are manually merged back!
+v 3.2
+  - Affiliation class updated
+  - Database class updated to reflect changes in Affiliation
+  - DLException class updated. Added a new constructor.
+v 3.3
+  - Added TestAffiliation.java - a set of tests for the affiliation class.
+  - Modified Main.java to run test from TestAffiliation
+  - Modified Database.java to implement AutoClosable interface.
+  - Added runme.sh, a runner script
+  - Modified Database.java - added getValue()
+v 3.4
+  - Modified Database.java. Added getList
+  - Modified Database.java. Changed getData
+  - Modified most files to accommodate the change in the Databases:getData()
+v 3.5
+  - Added TestPaperSubject.java - a set of tests for the PaperSubject class.
+  - Modified Main.java to run test TestPaperSubject.java
+  (Cannot test delete(); due to the database integrity. put does not work yet)
+v 3.6
+  - PaperAuthor:toString() added
+  - Modified Database.java:endTransaction() to actually close transaction!
+  - See above fixed put end delete in PaperSubject.
+v 3.7
+  - Modified Database.java - fixed exception handling in two places
+  - Modified Paper.java - fixed exception handling in two places
+  - Modified Configuration.java - commented out unused variables; closed unclosed database connections
+  - Modified PaperAuthor.java - closed unclosed database connections
+  - Modified DLUser.java - closed unclosed database connections
+v 3.8
+  - Modified DLUser.java - added to toString()
+  - Created TestDLUser.java
+  - Modified Main.java to run tests from TestDLUser.java
+  - Modified DLUser - rewrote post(Database db), setPassword(String), getPassword():String, fetch(Database db), put(Database db)
+  - Modified User.java to account for changes in DLUser
+  (still working on put)
+v 3.9
+  - Modified DLUser.java - stupid fixe to put(Database db), changed delete(Database db)
+  - Modified User.java to reflect changes in DLUser.java 
+v 4.1
+  - Modified DLUser.java DateToString and stringToDate fixed
+  - DLUser.login returns token if email is present, password matches the one for the email and not expired or null
+    Token is in the form 10 digit user id zero padded and "usr" for user or "adm" for admin. Example "0000000765usr"
+  - Configuration.java moved to DLConfiguration.java - Changed CRUD methods
+  - Added TestDLConfiguration.java
+  - Modified Main.java to reflect TestDLConfiguration.java
+  - TEMPORARY COMMENTED OUT many other methods, overwise would not compile
+  - Removed Java Console API calls and replaced with System.in/Scanner/System.out (Should run under jGrasp and other IDEs)
+v 4.2
+  - Modified User.java to add isAdmin(String token):boolean
+  - Created Configuration.java (still need to think on exception handling and failed attempts logging)
+  - Created TestConfiguration.java
+v 4.3
+  - Create TestUser.java
+  - Modified Main.java
+  - Modified User.java to add isSelf(String token, int userId):boolean
+  - Modified User.java All accessors and mutators
+v 4.4
+  - Added EmailTest for testing purposes
+  - Modified login() in DLUser to hash passwords
+  - Fixed resetPassword so now it sends a randomized 6-long String to the user's email 
+	and also updates that user's password with the temporary one with an expiration of 5 minutes
+  - Two jar files (activation and javax.mail) have been added to the folder (THEY ARE NECESSARY TO EMAIL WITH JAVA, all you need to do is set their classpaths)
+v 4.6
+  - Not sure what happened, but the code was broken - did not compile. Now it at least compiles. (Looks like someone overwrote my code again!).
+  - moved *.jar files to the "libs" folder
+  - Update .runme.sh to reflect the jar files location change
+  - Updated DLUser.java to make resetPassword static
+  - Updated User.java to reflect changes in DLUser.java
+  - DLUser.resetPassword was setting expiration date incorrectly (wrong timezone?), was not hashing temp password, was not checking for email actually existing.
+    (Right now it compiles and logs in with the password received in the email [email address is set in TestUser.java])
+v 4.7
+  - Added javax.json-api-1.1.4.jar to the "libs" folder
+  - Modified Affiliation.java. Added  public static String findAffiliationName(Database db, int affiliationId), Improved public static int findAffiliationId(Database db, String affiliationName) throws DLException
+  - Modified User.java. Added public String getUser(), added public static int idFromToken(String token)
+  - Modified DLUser.java. Changed login() to set expiration far in the future on successful login
+  - Added javax.json-1.1.jar, Modified ./runme to reflect.
+v 4.8
+  - Added DLPaper.java
+  (Ok. I am just uncommenting everything and uploading what I have at the moment. DOES NOT COMPILE)
+
+v 5.1
+  - DLException.java updated (commented out old way to create DLException using 2D arrays)
+  - Modified Type.java - added missing CRUD methods
+  - Modified Database.java - last references to DLException with 2D arrays moved over to Map
+  (Compiles)
