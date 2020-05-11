@@ -5,7 +5,7 @@ Create a data layer system to accept submission for an academic conference. The 
 The data layer contains CRUD operations for all entities as well as accessor and mutators for each class.
 
 Authors:
-  Dustin Chu - Data/Business layer verification, login, SQL queries
-  Devin Mochrie - Editting and front end testing
-  Tai Hartman - Java Docs
-  Vladmir Martynchenko - Clean up, front end testing
+  Dustin Chu - Data/Business layer verification, login, SQL queries;
+  Devin Mochrie - Editting and front end testing;
+  Tai Hartman - Java Docs;
+  Vladmir Martynchenko - Clean up, front end testing.
