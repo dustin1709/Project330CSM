@@ -20,11 +20,6 @@ public class DLUser{
    protected int    isAdmin;
    protected int    affiliationId;
    
-   //storing all users and passwords
-   // protected List<String> emails;
-   // protected List<String> pwds;
-   // protected boolean flag=false;
-   
    // CONSTRUCTORS
    public DLUser() {}
    public DLUser(int Id) { userId = Id; }
